@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Lista de Produtos</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 2.1px 6px;
+            font-size: small;
+            font-family: sans-serif;
+            text-align: center;
+            text-decoration: none;
+            background-image: linear-gradient(to bottom, #eeeeee, #bbbbbbb8);
+            color: black;
+            border: 1px solid grey;
+        }
+
+        .button:hover {
+            background: aqua;
+            cursor:pointer;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/src/main/resources/css/styles.css" />
+    <script type="text/javascript">
+        function excelNotify() {
+            alert(`Excel downloaded at #{excelExporterBean.sourceDirectory()}`)
+        }
+    </script>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:commandButton styleClass="button" value="Add new Product" action="#{productBean.redirectToCreatePage()}" />
+        <h:commandButton onclick="excelNotify()" styleClass="button" value="Export table to Excel" action="#{excelExporterBean.exportToExcel('tb_products')}" />
+        <h:dataTable var="product" value="#{productBean.getAllProducts()}">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{product.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{product.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                #{product.description}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                R$#{product.price}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:link styleClass="button" value="Edit" outcome="/editProduct.xhtml">
+                    <f:param name="id" value="#{product.id}" />
+                </h:link>
+                <h:commandButton styleClass="button" value="Delete" action="#{productBean.deleteProduct(product.id)}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Imagem</f:facet>
+                #{product.image}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+
+</h:body>
+</html>

@@ -1,0 +1,29 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Edit Product</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h1><h:outputText value="Editing #{editProductBean.product.name}"/></h1>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="name" value="Name"/>
+                <h:inputText id="name" value="#{editProductBean.product.name}" required="true"/>
+
+                <h:outputLabel for="description" value="Description"/>
+                <h:inputText id="description" value="#{editProductBean.product.description}" required="true" />
+
+                <h:outputLabel for="price" value="Price"/>
+                <h:inputText id="price" value="#{editProductBean.product.price}" required="true">
+                    <f:validateDoubleRange minimum="0.01"/>
+                </h:inputText>
+                <h:commandButton value="Update" action="#{editProductBean.submit()}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+    </html>

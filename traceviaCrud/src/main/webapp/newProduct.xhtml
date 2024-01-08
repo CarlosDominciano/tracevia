@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Manage Products</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 2.1px 6px;
+            font-size: small;
+            font-family: sans-serif;
+            text-align: center;
+            text-decoration: none;
+            background-image: linear-gradient(to bottom, #eeeeee, #bbbbbbb8);
+            color: black;
+            border: 1px solid grey;
+        }
+
+        .button:hover {
+            background: aqua;
+            cursor:pointer;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="name" value="Name"/>
+            <h:inputText required="true" requiredMessage="Required name" id="name" value="#{productBean.product.name}"/>
+            <h:message for="name"/>
+
+            <h:outputLabel for="description" value="Description"/>
+            <h:inputText required="true" requiredMessage="Required description" id="description" value="#{productBean.product.description}">
+            </h:inputText>
+            <h:message for="description"/>
+
+            <h:outputLabel for="price" value="Price"/>
+            <h:inputText required="true" requiredMessage="Required price" id="price" value="#{productBean.product.price}">
+                <f:validateDoubleRange minimum="0.01"/>
+            </h:inputText>
+            <h:message for="price"/>
+
+            <h:outputLabel for="image" value="Image "/>
+            <h:inputFile required="true" requiredMessage="Required image" id="image" value="#{productBean.image}"/>
+            <h:message for="image"/>
+
+            <h:commandButton styleClass="button" action="#{productBean.submit()}" value="Submit"/>
+            <h:link styleClass="button" value="Back" outcome="/products.xhtml"/>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
