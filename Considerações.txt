@@ -1,0 +1,6 @@
+08/01/2024
+
+Queria começar primeiro agradecendo a oportunidade. Bom, queria deixar claro como foi complicado aprender JSF no sábado para poder terminar o projeto no domingo (estou subindo na segunda por causa de alguns ajustes), algumas partes foram mais complicadas que as outras, um exemplo foi para poder configurar o ambiente do PrimeFaces com o Tomcat, eu nunca havia trabalhado com essa tecnologia... e achei interessante, senti como se fosse um Angular mas que roda apenas com Java. Foquei mais na parte do Back-End do projeto devido a não entender muito bem como funciona o CSS com o JSF, uma das coisas que me deixou frustrado, que no caso foi justamente não saber organizar os arquivos e diretórios corretamente. Tentei mostrar que nesse tempo aprendi algumas coisas e usei diversas artimanhas para fazer a mesma coisa, como por exemplo trocar de página em JSf, lembro de ter usado o retorno de um método e Link por exemplo.
+Bom, espero que deêm uma olhada no projeto.
+
+Uma coisa para se atentar, na parte do código onde se trata dos acessos do banco de dados, eu tirei eles por segurança para vocês colocarem o banco de vocês.
